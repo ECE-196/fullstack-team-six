@@ -8,7 +8,7 @@ const char S_ERR { 0xff };
 // This function is called when a byte is received over serial
 void on_receive(void* event_handler_arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
     // Read one byte from the serial buffer
-    char state = USBSerial.read();
+    char state { USBSerial.read() };
 
     // Check if the byte represents a valid LED state
     if (!(state == LOW || state == HIGH)) {
